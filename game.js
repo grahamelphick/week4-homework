@@ -7,7 +7,7 @@
 // }
 
 
-var question = document.getElementById("question") //.textContent;
+var question = document.getElementById("question")
 console.log(question);
 var choice1 = document.getElementById("choice1")
 var choice2 = document.getElementById("choice2")
@@ -31,7 +31,7 @@ var availQu = [
         choice2: "another answer",
         choice3: "yet another answer",
         choice4: "omg another answer",
-        answer: 1
+        answer: "an answer"
     },
     {
         question: "Question two",
@@ -39,7 +39,7 @@ var availQu = [
         choice2: "here we go again",
         choice3: "my my",
         choice4: "how did i let this happen",
-        answer: 3
+        answer: "my my"
     },
     {
         question: "Question three",
@@ -47,7 +47,7 @@ var availQu = [
         choice2: "howdy partner",
         choice3: "yeeeeeeeee hawwwww",
         choice4: "water is peaceful",
-        answer: 4
+        answer: "water is peaceful"
     }
 ]
 
@@ -65,11 +65,45 @@ function startQuiz() {
     choice4.innerText = currentQu.choice4;
 };
 
-document.getElementById("choice1").addEventListener("click", getNewQu);
-document.getElementById("choice2").addEventListener("click", getNewQu);
-document.getElementById("choice3").addEventListener("click", getNewQu);
-document.getElementById("choice4").addEventListener("click", getNewQu);
+document.getElementById("choice1").onclick = function() {
+    if (currentQu.choice1 == currentQu.answer) {
+        console.log("true")
+    }
+    else {
+        console.log("false")
+    }
+    getNewQu()
+}
 
+document.getElementById("choice2").onclick = function() {
+    if (currentQu.choice2 == currentQu.answer) {
+        console.log("true")
+    }
+    else {
+        console.log("false")
+    }
+    getNewQu()
+}
+
+document.getElementById("choice3").onclick = function() {
+    if (currentQu.choice3 == currentQu.answer) {
+        console.log("true")
+    }
+    else {
+        console.log("false")
+    }
+    getNewQu()
+}
+
+document.getElementById("choice4").onclick = function() {
+    if (currentQu.choice4 == currentQu.answer) {
+        console.log("true")
+    }
+    else {
+        console.log("false")
+    }
+    getNewQu()
+}
 
 
 
