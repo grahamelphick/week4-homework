@@ -63,31 +63,25 @@ function startQuiz() {
     choice2.innerText = currentQu.choice2;
     choice3.innerText = currentQu.choice3;
     choice4.innerText = currentQu.choice4;
-
-
-
-
-    // choices.forEach(choice) {
-    //     var choice = choices.dataset["number"];
-    //     choices.innerText = currentQu["choice-text" + choice];
-    // }
-    
-    // var choiceNum = choices.dataset."number";
-    // choices.innerText = currentQu["choice-text" + number];
-
-    
 };
 
-// function displayQu() {
-//     question.textContent = "" + currentQu
-// }
+document.getElementById("choice1").addEventListener("click", getNewQu);
+document.getElementById("choice2").addEventListener("click", getNewQu);
+document.getElementById("choice3").addEventListener("click", getNewQu);
+document.getElementById("choice4").addEventListener("click", getNewQu);
 
-// getNewQu();
+
+
 
 function getNewQu() {
     quCounter++;
     currentQu = availQu[quCounter]
     console.log(currentQu)
+    question.innerText = currentQu.question;
+    choice1.innerText = currentQu.choice1;
+    choice2.innerText = currentQu.choice2;
+    choice3.innerText = currentQu.choice3;
+    choice4.innerText = currentQu.choice4;
 };
 
 startQuiz()
