@@ -1,0 +1,24 @@
+#timer {
+    text-align: right;
+}
+
+#highscores {
+    color: purple;
+}
+
+h1 {
+    text-align: center;
+}
+
+#quizdescription {
+    text-align: center;
+}
+
+.buttonholder {
+    text-align: center;
+}
+
+#startbutton {
+    color: white;
+    background-color: purple;
+}

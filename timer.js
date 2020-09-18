@@ -20,4 +20,3 @@ function countDown() {
 
 
 countDown();
-
