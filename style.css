@@ -1,5 +1,6 @@
 #timer {
     text-align: right;
+    float: right;
 }
 
 #highscores {
@@ -18,7 +19,7 @@ h1 {
     text-align: center;
 }
 
-#startbutton {
+button {
     color: white;
     background-color: purple;
 }

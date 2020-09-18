@@ -1,11 +1,11 @@
 var countdownEl = document.getElementById("timer");
 
 var secondsLeft = 60
-var timeDisplay = secondsLeft
+var timeDisplay = "Time: " + secondsLeft + " seconds"
 
 function countDown() {
     setInterval(function () {
-        countdownEl.textContent = secondsLeft
+        countdownEl.textContent = "Time: " + secondsLeft + " seconds"
         secondsLeft--;
 
         if (secondsLeft <= 0) {
@@ -21,27 +21,12 @@ function countDown() {
 countDown();
 
 
-// document.getElementById ("startbutton").addEventListener ("click", nextQuestion);
-
-// nextQuestion() {
-
-
-
-// }
-
-
 var question = document.getElementById("question")
 console.log(question);
 var choice1 = document.getElementById("choice1")
 var choice2 = document.getElementById("choice2")
 var choice3 = document.getElementById("choice3")
 var choice4 = document.getElementById("choice4")
-
-// var choices = Array.from(document.getElementsByClassName("choice-text"));
-// console.log(choices);
-
-// var currentQu = {};
-// var availableQu = [];
 
 var score = 0;
 var quCounter = 0
@@ -50,28 +35,44 @@ var correctPoints = 10;
 
 var availQu = [
     {
-        question: "Question one",
-        choice1: "an answer",
-        choice2: "another answer",
-        choice3: "yet another answer",
-        choice4: "omg another answer",
-        answer: "an answer"
+        question: "Commonly used data types DO NOT include:",
+        choice1: "1. strings",
+        choice2: "2. booleans",
+        choice3: "3. alerts",
+        choice4: "4. numbers",
+        answer: "3. alerts"
     },
     {
-        question: "Question two",
-        choice1: "mama mia",
-        choice2: "here we go again",
-        choice3: "my my",
-        choice4: "how did i let this happen",
-        answer: "my my"
+        question: "The condition in an if / else statement is enclosed within_____.",
+        choice1: "1. quotes",
+        choice2: "2. curly brackets",
+        choice3: "3. parentheses",
+        choice4: "4. square brackets",
+        answer: "3. parentheses"
     },
     {
-        question: "Question three",
-        choice1: "hellooooo",
-        choice2: "howdy partner",
-        choice3: "yeeeeeeeee hawwwww",
-        choice4: "water is peaceful",
-        answer: "water is peaceful"
+        question: "Arrays in JavaScript can be used to store _______.",
+        choice1: "1. numbers and strings",
+        choice2: "2. other arrays",
+        choice3: "3. booleans",
+        choice4: "4. all of the above",
+        answer: "4. all of the above"
+    },
+    {
+        question: "String values must be enclosed within _______ when being assigned to variables.",
+        choice1: "1. commas",
+        choice2: "2. curly brackets",
+        choice3: "3. quotes",
+        choice4: "4. parentheses",
+        answer: "3. quotes"
+    },
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        choice1: "1. JavaScript",
+        choice2: "2. terminal / bash",
+        choice3: "3. for loops",
+        choice4: "4. console.log",
+        answer: "4. console.log"
     }
 ]
 
@@ -86,9 +87,13 @@ function startQuiz() {
     choice2.innerText = currentQu.choice2;
     choice3.innerText = currentQu.choice3;
     choice4.innerText = currentQu.choice4;
+    if (secondsLeft <= 0) {
+        console.log("end game")
+        endGame()
+    }
 };
 
-document.getElementById("choice1").onclick = function() {
+document.getElementById("choice1").onclick = function () {
     if (currentQu.choice1 == currentQu.answer) {
         console.log("true")
         document.getElementById("rightorwrong").textContent = "Correct!"
@@ -100,10 +105,16 @@ document.getElementById("choice1").onclick = function() {
         document.getElementById("rightorwrong").textContent = "Wrong!"
         secondsLeft -= 10
     }
-    getNewQu()
+    if (quCounter >= 4) {
+        console.log("end game")
+        endGame()
+    }
+    else {
+        getNewQu()
+    }
 }
 
-document.getElementById("choice2").onclick = function() {
+document.getElementById("choice2").onclick = function () {
     if (currentQu.choice2 == currentQu.answer) {
         console.log("true")
         document.getElementById("rightorwrong").textContent = "Correct!"
@@ -115,10 +126,16 @@ document.getElementById("choice2").onclick = function() {
         document.getElementById("rightorwrong").textContent = "Wrong!"
         secondsLeft -= 10
     }
-    getNewQu()
+    if (quCounter >= 4) {
+        console.log("end game")
+        endGame()
+    }
+    else {
+        getNewQu()
+    }
 }
 
-document.getElementById("choice3").onclick = function() {
+document.getElementById("choice3").onclick = function () {
     if (currentQu.choice3 == currentQu.answer) {
         console.log("true")
         document.getElementById("rightorwrong").textContent = "Correct!"
@@ -130,10 +147,16 @@ document.getElementById("choice3").onclick = function() {
         document.getElementById("rightorwrong").textContent = "Wrong!"
         secondsLeft -= 10
     }
-    getNewQu()
+    if (quCounter >= 4) {
+        console.log("end game")
+        endGame()
+    }
+    else {
+        getNewQu()
+    }
 }
 
-document.getElementById("choice4").onclick = function() {
+document.getElementById("choice4").onclick = function () {
     if (currentQu.choice4 == currentQu.answer) {
         console.log("true")
         document.getElementById("rightorwrong").textContent = "Correct!"
@@ -145,9 +168,14 @@ document.getElementById("choice4").onclick = function() {
         document.getElementById("rightorwrong").textContent = "Wrong!"
         secondsLeft -= 10
     }
-    getNewQu()
+    if (quCounter >= 4) {
+        console.log("end game")
+        endGame()
+    }
+    else {
+        getNewQu()
+    }
 }
-
 
 
 function getNewQu() {
@@ -159,27 +187,96 @@ function getNewQu() {
     choice2.innerText = currentQu.choice2;
     choice3.innerText = currentQu.choice3;
     choice4.innerText = currentQu.choice4;
+    if (secondsLeft <= 0) {
+        console.log("end game")
+        endGame()
+    }
 };
 
 startQuiz()
 
+function endGame() {
+    document.getElementById("question").textContent = "All done!";
+    document.getElementById("choice1").style.display = 'none';
+    document.getElementById("choice2").style.display = 'none';
+    document.getElementById("choice3").style.display = 'none';
+    document.getElementById("choice4").style.display = 'none';
 
-// var personIdx = 0;
+    var finalScore = document.createElement("p");
+    var node = document.createTextNode("Your final score is " + score + ".");
+    finalScore.appendChild(node);
+    var element = document.getElementById("question");
+    element.appendChild(finalScore);
+    finalScore.setAttribute("id", "finalscore");
 
-// function renderPerson() {
-//   var currentPerson = peoples[personIdx];
-//   $("#person-name").text(currentPerson.name);
-//   $("#person-age").text(currentPerson.age);
-//   $("#person-phone").text(currentPerson.phone);
-//   $("#person-occupation").text(currentPerson.occupation);
-// }
+    var initials = document.createElement("p");
+    var initialsNode = document.createTextNode("Enter Initials: ");
+    initials.appendChild(initialsNode);
+    var initialsEl = document.getElementById("question");
+    initialsEl.appendChild(initials);
 
-// function renderNextPerson() {
-//   if (personIdx == peoples.length - 1) {
-//     alert("End of contacts list!");
-//     return;
-//   }
-//   personIdx++;
-//   count -= 10;
-//   renderPerson();
-// }
+    var inputBox = document.createElement("input");
+    var inputEl = document.getElementById("question");
+    inputEl.appendChild(inputBox);
+
+    var submitButton = document.createElement("button");
+    var submitEl = document.getElementById("question");
+    submitEl.appendChild(submitButton);
+    submitButton.id = 'submitbutton';
+
+    localStorage.setItem("highscore", score);
+    localStorage.setItem("name", initialsEl);
+};
+
+
+
+document.getElementById("submitbutton").addEventListener("click", seeScores); 
+
+function seeScores(){
+    var highscore = localStorage.getItem("highscore");
+    // var name = localStorage.getItem("name");
+    document.getElementById("question").textContent = "Highscores";
+    document.getElementById("finalscore").textContent = highscore
+
+
+};
+
+
+
+    // renderLastRegistered();
+
+    // function displayMessage(type, message) {
+    //   msgDiv.textContent = message;
+    //   msgDiv.setAttribute("class", type);
+    // }
+
+    // function renderLastRegistered() {
+    //   var email = localStorage.getItem("email");
+    //   var password = localStorage.getItem("password");
+
+    //   if (!email || !password) {
+    //     return;
+    //   }
+
+    //   userEmailSpan.textContent = email;
+    //   userPasswordSpan.textContent = password;
+    // }
+
+    // signUpButton.addEventListener("click", function(event) {
+    //   event.preventDefault();
+
+    //   var email = document.querySelector("#email").value;
+    //   var password = document.querySelector("#password").value;
+
+    //   if (email === "") {
+    //     displayMessage("error", "Email cannot be blank");
+    //   } else if (password === "") {
+    //     displayMessage("error", "Password cannot be blank");
+    //   } else {
+    //     displayMessage("success", "Registered successfully");
+
+    //     localStorage.setItem("email", email);
+    //     localStorage.setItem("password", password);
+    //     renderLastRegistered();
+    //   }
+    // }); 
