@@ -3,6 +3,8 @@
 
 <head>
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Coding Quiz</title>
 </head>
 
@@ -13,15 +15,26 @@
         <p id="timer">Time: 60 seconds</p>
     </header>
 
-    <h1>CODING QUIZ CHALLENGE</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
 
-    <p id="quizdescription">
-        Try your best to answer the following questions correctly. Remember that you're on a time
-        limit and incorrect answers will decrease your 'time left'.
-    </p>
+                <h1>CODING QUIZ CHALLENGE</h1>
+                <br>
 
-    <div class="buttonholder">
-        <button onclick="window.location.href='./questions.html';" id="startbutton">Start Quiz</button>
+                <p id="quizdescription">
+                    Try your best to answer the following questions correctly. Remember that you're on a time
+                    limit and incorrect answers will decrease your 'time left'.
+                </p>
+                <br>
+
+                <div class="buttonholder">
+                    <button onclick="window.location.href='./questions.html';" id="startbutton">Start Quiz</button>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
     </div>
 
     <script src="./script.js"></script>

@@ -10,11 +10,19 @@ function countDown() {
 
         if (secondsLeft <= 0) {
             clearInterval(secondsLeft = 0);
+            endGame();
         }
 
     }, 1000);
+    
+    console.log("timer started");
+    
+    // if (secondsLeft <= 0) {
+    //     console.log("end game");
+    //     endGame();
+    // };
 
-    console.log("timer started")
+    
 }
 
 
@@ -87,10 +95,10 @@ function startQuiz() {
     choice2.innerText = currentQu.choice2;
     choice3.innerText = currentQu.choice3;
     choice4.innerText = currentQu.choice4;
-    if (secondsLeft <= 0) {
-        console.log("end game")
-        endGame()
-    }
+    // if (secondsLeft <= 0) {
+    //     console.log("end game");
+    //     endGame();
+    // };
 };
 
 document.getElementById("choice1").onclick = function () {
@@ -187,10 +195,6 @@ function getNewQu() {
     choice2.innerText = currentQu.choice2;
     choice3.innerText = currentQu.choice3;
     choice4.innerText = currentQu.choice4;
-    if (secondsLeft <= 0) {
-        console.log("end game")
-        endGame()
-    }
 };
 
 startQuiz()
@@ -205,8 +209,8 @@ function endGame() {
     var finalScore = document.createElement("p");
     var node = document.createTextNode("Your final score is " + score + ".");
     finalScore.appendChild(node);
-    var element = document.getElementById("question");
-    element.appendChild(finalScore);
+    var finScoreEl = document.getElementById("question");
+    finScoreEl.appendChild(finalScore);
     finalScore.setAttribute("id", "finalscore");
 
     var initials = document.createElement("p");
@@ -214,12 +218,17 @@ function endGame() {
     initials.appendChild(initialsNode);
     var initialsEl = document.getElementById("question");
     initialsEl.appendChild(initials);
+    initials.setAttribute("id", "initials");
 
     var inputBox = document.createElement("input");
     var inputEl = document.getElementById("question");
     inputEl.appendChild(inputBox);
 
     var submitButton = document.createElement("button");
+    var submitBtnNode = document.createTextNode("Submit");
+        submitBtnNode.id = 'submittext'
+
+    submitButton.appendChild(submitBtnNode)
     var submitEl = document.getElementById("question");
     submitEl.appendChild(submitButton);
     submitButton.id = 'submitbutton';
@@ -230,13 +239,17 @@ function endGame() {
 
 
 
-document.getElementById("submitbutton").addEventListener("click", seeScores); 
+document.getElementById("submitbutton").addEventListener("click", seeScores) 
 
-function seeScores(){
+function seeScores() {
     var highscore = localStorage.getItem("highscore");
     // var name = localStorage.getItem("name");
     document.getElementById("question").textContent = "Highscores";
-    document.getElementById("finalscore").textContent = highscore
+    
+    var highscoreList = document.createElement("p");
+    highscoreList.setAttribute("id", "highscorelist");
+    document.getElementById("highscorelist").textContent = highscore
+
 
 
 };
