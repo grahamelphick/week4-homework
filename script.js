@@ -1,3 +1,26 @@
+var countdownEl = document.getElementById("timer");
+
+var secondsLeft = 60
+var timeDisplay = secondsLeft
+
+function countDown() {
+    setInterval(function () {
+        countdownEl.textContent = secondsLeft
+        secondsLeft--;
+
+        if (secondsLeft <= 0) {
+            clearInterval(secondsLeft = 0);
+        }
+
+    }, 1000);
+
+    console.log("timer started")
+}
+
+
+countDown();
+
+
 // document.getElementById ("startbutton").addEventListener ("click", nextQuestion);
 
 // nextQuestion() {
@@ -22,6 +45,7 @@ var choice4 = document.getElementById("choice4")
 
 var score = 0;
 var quCounter = 0
+var correctPoints = 10;
 
 
 var availQu = [
@@ -51,7 +75,6 @@ var availQu = [
     }
 ]
 
-var correctPoints = 10;
 
 function startQuiz() {
     quCounter = 0;
@@ -68,9 +91,14 @@ function startQuiz() {
 document.getElementById("choice1").onclick = function() {
     if (currentQu.choice1 == currentQu.answer) {
         console.log("true")
+        document.getElementById("rightorwrong").textContent = "Correct!"
+        score += correctPoints
+        console.log(score)
     }
     else {
         console.log("false")
+        document.getElementById("rightorwrong").textContent = "Wrong!"
+        secondsLeft -= 10
     }
     getNewQu()
 }
@@ -78,9 +106,14 @@ document.getElementById("choice1").onclick = function() {
 document.getElementById("choice2").onclick = function() {
     if (currentQu.choice2 == currentQu.answer) {
         console.log("true")
+        document.getElementById("rightorwrong").textContent = "Correct!"
+        score += correctPoints
+        console.log(score)
     }
     else {
         console.log("false")
+        document.getElementById("rightorwrong").textContent = "Wrong!"
+        secondsLeft -= 10
     }
     getNewQu()
 }
@@ -88,9 +121,14 @@ document.getElementById("choice2").onclick = function() {
 document.getElementById("choice3").onclick = function() {
     if (currentQu.choice3 == currentQu.answer) {
         console.log("true")
+        document.getElementById("rightorwrong").textContent = "Correct!"
+        score += correctPoints
+        console.log(score)
     }
     else {
         console.log("false")
+        document.getElementById("rightorwrong").textContent = "Wrong!"
+        secondsLeft -= 10
     }
     getNewQu()
 }
@@ -98,9 +136,14 @@ document.getElementById("choice3").onclick = function() {
 document.getElementById("choice4").onclick = function() {
     if (currentQu.choice4 == currentQu.answer) {
         console.log("true")
+        document.getElementById("rightorwrong").textContent = "Correct!"
+        score += correctPoints
+        console.log(score)
     }
     else {
         console.log("false")
+        document.getElementById("rightorwrong").textContent = "Wrong!"
+        secondsLeft -= 10
     }
     getNewQu()
 }
