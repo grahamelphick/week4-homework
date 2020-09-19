@@ -8,9 +8,9 @@ https://grahamelphick.github.io/week3-homework/
 
 
 Screenshots of deployed application:
-<img src="./screenshots.homepage.png" alt="quiz homepage">
-<img src="./screenshots.quiz.png" alt="quiz question page">
-<img src="./screenshots.finalscore.png" alt="quiz final score page">
+<img src="./screenshots/homepage.png" alt="quiz homepage">
+<img src="./screenshots/quiz.png" alt="quiz question page">
+<img src="./screenshots/finalscore.png" alt="quiz final score page">
 
 
 To begin, the player presses the start button. This loads the first question and starts the countdown (60 seconds).
