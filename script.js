@@ -14,15 +14,15 @@ function countDown() {
         }
 
     }, 1000);
-    
+
     console.log("timer started");
-    
+
     // if (secondsLeft <= 0) {
     //     console.log("end game");
     //     endGame();
     // };
 
-    
+
 }
 
 
@@ -226,70 +226,29 @@ function endGame() {
 
     var submitButton = document.createElement("button");
     var submitBtnNode = document.createTextNode("Submit");
-        submitBtnNode.id = 'submittext'
-
+    submitBtnNode.id = 'submittext'
     submitButton.appendChild(submitBtnNode)
     var submitEl = document.getElementById("question");
     submitEl.appendChild(submitButton);
     submitButton.id = 'submitbutton';
 
     localStorage.setItem("highscore", score);
-    localStorage.setItem("name", initialsEl);
+    localStorage.setItem("name", inputBox);
+
+    document.getElementById("submitbutton").addEventListener("click", seeScores);
 };
 
 
 
-document.getElementById("submitbutton").addEventListener("click", seeScores) 
 
 function seeScores() {
+    document.getElementById("rightorwrong").style.display = 'none';
     var highscore = localStorage.getItem("highscore");
-    // var name = localStorage.getItem("name");
+    var nameObject = JSON.parse(localStorage.getItem("name"));
+
     document.getElementById("question").textContent = "Highscores";
-    
+
     var highscoreList = document.createElement("p");
-    highscoreList.setAttribute("id", "highscorelist");
-    document.getElementById("highscorelist").textContent = highscore
-
-
-
-};
-
-
-
-    // renderLastRegistered();
-
-    // function displayMessage(type, message) {
-    //   msgDiv.textContent = message;
-    //   msgDiv.setAttribute("class", type);
-    // }
-
-    // function renderLastRegistered() {
-    //   var email = localStorage.getItem("email");
-    //   var password = localStorage.getItem("password");
-
-    //   if (!email || !password) {
-    //     return;
-    //   }
-
-    //   userEmailSpan.textContent = email;
-    //   userPasswordSpan.textContent = password;
-    // }
-
-    // signUpButton.addEventListener("click", function(event) {
-    //   event.preventDefault();
-
-    //   var email = document.querySelector("#email").value;
-    //   var password = document.querySelector("#password").value;
-
-    //   if (email === "") {
-    //     displayMessage("error", "Email cannot be blank");
-    //   } else if (password === "") {
-    //     displayMessage("error", "Password cannot be blank");
-    //   } else {
-    //     displayMessage("success", "Registered successfully");
-
-    //     localStorage.setItem("email", email);
-    //     localStorage.setItem("password", password);
-    //     renderLastRegistered();
-    //   }
-    // }); 
+    var hSListNode = document.createTextNode("highscore");
+    highscoreList.appendChild(hSListNode);
+    console.log("here are the scores");
